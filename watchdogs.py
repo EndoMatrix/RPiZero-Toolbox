@@ -10,7 +10,7 @@ from PIL import ImageFont
 
 import subprocess
 
-RST = None # unused
+RST = None # no RESET pin on the display
 
 # 128x32 display with hardware I2C:
 disp = Adafruit_SSD1306.SSD1306_128_32(rst=RST)
@@ -40,7 +40,7 @@ while frame:
     disp.display()
     try:
         v = time.time()
-        time.sleep(max((frame.info['duration'] / 1000) - (v - u), 0))
+        time.sleep(max((frame.info['duration'] / 1000) - (v - u), 0)) # attempts to maintain accurate framerate
         frame.seek(frame.tell() + 1) # find next frame, if it exists
     except EOFError:
         draw.rectangle((0, 0, w, h), outline=0, fill=0)
