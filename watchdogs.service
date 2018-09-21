@@ -17,13 +17,13 @@ Description=Adafruit SSD1306 Watchdogs Loading Service
 
 [Service]
 # modify this to match the directory containing watchdogs.py
-ExecStartPre=/usr/bin/python /home/endom8rix/Documents/EndoM8rix/EndoM8rix_Python_SSD1306/apps/watchdogs.py
+ExecStartPre=/usr/bin/python /home/endom8rix/Documents/EndoM8rix/EndoM8rix_Python_SSD1306/apps/watchdogs.py &
 
 # modify this to alter the behaviour when the service is started, and the loading animation is complete
-ExecStart=/usr/bin/python /home/endom8rix/Documents/Adafruit/Adafruit_Python_SSD1306/examples/stats.py
+ExecStart=/usr/bin/python /home/endom8rix/Documents/Adafruit/Adafruit_Python_SSD1306/examples/stats.py &
 
 # modify this to alter the behaviour when the service is stopped
-ExecStop=/usr/bin/python /home/endom8rix/Documents/Adafruit/Adafruit_Python_SSD1306/examples/clear.py
+ExecStop=/usr/bin/python /home/endom8rix/Documents/Adafruit/Adafruit_Python_SSD1306/examples/clear.py &
 
 Restart=always
 	RestartSec=10
