@@ -4,8 +4,8 @@
 # You will need to modify the ExecStart and ExecStop attributes below to change
 # the behaviour of this service after the watchdogs.py executable has finished.
 #
-# You will also need to modify the WorkingDirectory attributes below to provide
-# the correct path to the watchdogs.py executable.
+# You will also need to modify the ExecStartPre attributes below to provide the
+# correct path to the watchdogs.py executable.
 #
 # To use this service file, follow the steps below:
 # 1: sudo mv /path/to/watchdogs.service /etc/systemd/system/
@@ -18,9 +18,7 @@ After=syslog.target
 
 [Service]
 # modify this to match the directory containing watchdogs.py
-WorkingDirectory=/home/endom8rix/Documents/EndoM8rix/EndoM8rix_Python_SSD1306/apps
-
-ExecStartPre=/usr/bin/python watchdogs.py
+ExecStartPre=/usr/bin/python /home/endom8rix/Documents/EndoM8rix/EndoM8rix_Python_SSD1306/apps/watchdogs.py
 
 # modify this to alter the behaviour when the service is started, and the loading animation is complete
 ExecStart=/usr/bin/python /home/endom8rix/Documents/Adafruit/Adafruit_Python_SSD1306/examples/stats.py
