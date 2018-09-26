@@ -14,16 +14,17 @@
 
 [Unit]
 Description=Adafruit SSD1306 Watchdogs Loading Service
+After=multi-user.target
 
 [Service]
 # modify this to match the directory containing watchdogs.py
-ExecStartPre=/usr/bin/python /home/endom8rix/Documents/EndoM8rix/EndoM8rix_Python_SSD1306/apps/watchdogs.py &
+ExecStartPre=/usr/bin/python /home/endom8rix/Documents/EndoM8rix/SSD1306-Toolbox/watchdogs.py &
 
 # modify this to alter the behaviour when the service is started, and the loading animation is complete
 ExecStart=/usr/bin/python /home/endom8rix/Documents/Adafruit/Adafruit_Python_SSD1306/examples/stats.py &
 
 # modify this to alter the behaviour when the service is stopped
-ExecStop=/usr/bin/python /home/endom8rix/Documents/Adafruit/Adafruit_Python_SSD1306/examples/clear.py &
+ExecStop=/usr/bin/python /home/endom8rix/Documents/EndoM8rix/SSD1306-Toolbox/reset.py &
 
 Restart=always
 	RestartSec=10
@@ -33,7 +34,7 @@ StandardError=syslog
 
 SyslogIdentifier=watchdogs-service
 
-Nice=-20
+Nice=-19
 
 [Install]
 WantedBy=multi-user.target
