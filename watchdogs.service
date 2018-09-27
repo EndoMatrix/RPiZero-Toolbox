@@ -14,7 +14,7 @@
 
 [Unit]
 Description=Adafruit SSD1306 Watchdogs Loading Service
-After=multi-user.target
+After=syslog.target
 
 [Service]
 # modify this to match the directory containing watchdogs.py
