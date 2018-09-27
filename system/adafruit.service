@@ -1,0 +1,35 @@
+# This is an example service file for supplying device info via the Adafruit
+# SSD1306 display.
+# 
+# You will need to modify the ExecStart and ExecStop attributes below to change
+# the behaviour of this service.
+#
+# To use this service file, follow the steps below:
+# 1: sudo mv /path/to/adafruit.service /etc/systemd/system/
+# 2: sudo systemctl enable adafruit.service
+# 3: sudo systemctl start adafruit.service
+
+[Unit]
+Description=Adafruit SSD1306 Info Service
+After=watchdogs.service
+Requires=watchdogs.service
+
+[Service]
+# modify this to alter the behaviour when the service is started
+ExecStart=/usr/bin/python /home/endom8rix/Documents/Adafruit/Adafruit_Python_SSD1306/examples/stats.py
+
+# modify this to alter the behaviour when the service is stopped
+ExecStop=/usr/bin/python /home/endom8rix/Documents/EndoM8rix/RPiZero-Toolbox/reset.py
+
+Restart=always
+RestartSec=10
+
+StandardOutput=syslog
+StandardError=syslog
+
+SyslogIdentifier=adafruit-service
+
+Nice=-19
+
+[Install]
+WantedBy=multi-user.target
