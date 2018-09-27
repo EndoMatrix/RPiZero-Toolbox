@@ -46,7 +46,7 @@ class Characteristic extends bleno.Characteristic {
 
 // obtains the supplicant file for the Wi-Fi PA service
 module.exports = new Characteristic({
-  uuid: '303A64F1-0000-0002-0000-95B1F4064C7F'.replace(/-/g, ''),
+  uuid: 'A35C64F1-0001-0001-0000-6D2F4064C7FA'.replace(/-/g, ''),
   properties: ['read'],
   descriptors: [
     new bleno.Descriptor({

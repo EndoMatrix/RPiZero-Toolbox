@@ -6,7 +6,7 @@ const [address] = require('os').networkInterfaces().wlan0;
 
 bleno.on('stateChange', (state) => {
   const UUID_36 = parseInt(address.mac.replace(/:/g, '').substr(-6), 16).toString(36).toUpperCase().stick('-', 4); // hexatridecimal encoding for latter half of MAC address
-  const UUID_16 = '303A64F1-A35F-3472-2659-95B1F4064C7F'.replace(/-/g, ''); // hexadecimal encoding for Service UUID
+  const UUID_16 = 'A35F64F1-0000-0000-0000-6D2F4064C7FA'.replace(/-/g, ''); // hexadecimal encoding for Service UUID
 
   switch (state) {
     case 'poweredOn':
