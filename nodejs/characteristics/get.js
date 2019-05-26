@@ -18,13 +18,13 @@ class Characteristic extends bleno.Characteristic {
    * @param {function} callback - the callback function for transmitting the data
    */
   onReadRequest(offset, callback) {
-    fs.open(file, 'r', function(error, filde) {
+    fs.open(file, 'r', (error, filde) => {
       if (error) throw error; // throws an error if insufficient read/write permissions are supplied (i.e. user/group) for the specified file
 
-      fs.stat(file, function(error, stats) {
+      fs.stat(file, (error, stats) => {
         if (error) throw error; // throws an error if specified file does not exist
 
-        fs.read(filde, Buffer.alloc(stats.size), 0, stats.size, 0, function(error, count, bytes) {
+        fs.read(filde, Buffer.alloc(stats.size), 0, stats.size, 0, (error, count, bytes) => {
           if (error) throw error; // throws an error if insufficient read permissions are supplied (i.e. user/group) for the specified file
 
           callback(bleno.Characteristic.RESULT_SUCCESS, bytes.slice(offset)); // delivers complete byte array in multiple segments

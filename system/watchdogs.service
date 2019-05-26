@@ -5,9 +5,8 @@
 # the behaviour of this service.
 #
 # To use this service file, follow the steps below:
-# 1: sudo mv /path/to/watchdogs.service /etc/systemd/system/
-# 2: sudo systemctl enable watchdogs.service
-# 3: sudo systemctl start watchdogs.service
+# 2: sudo systemctl enable /path/to/watchdogs.service
+# 3: sudo systemctl start watchdogs[.service]
 
 [Unit]
 Description=Adafruit SSD1306 Watchdogs Loading Service
