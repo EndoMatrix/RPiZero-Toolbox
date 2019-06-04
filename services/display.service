@@ -1,31 +1,32 @@
-# This is an example service file for executing a Watchdogs-style loading
-# animation during startup.
-# 
+# This is an example service file for supplying device info via the Adafruit
+# SSD1306 display.
+#
 # You will need to modify the ExecStart and ExecStop attributes below to change
 # the behaviour of this service.
 #
 # To use this service file, follow the steps below:
-# 2: sudo systemctl enable /path/to/watchdogs.service
-# 3: sudo systemctl start watchdogs[.service]
+# 2: sudo systemctl enable /path/to/adafruit.service
+# 3: sudo systemctl start adafruit.service
 
 [Unit]
-Description=Adafruit SSD1306 Watchdogs Loading Service
-After=syslog.target
+Description=Adafruit SSD1306 Service
+After=loading.service
+Requires=loading.service
 
 [Service]
-Type=oneshot
-RemainAfterExit=true
-
 # modify this to alter the behaviour when the service is started
-ExecStart=/usr/bin/python /home/endom8rix/Documents/EndoM8rix/RPiZero-Toolbox/watchdogs.py
+ExecStart=/usr/bin/python /home/endom8rix/Documents/Adafruit/Adafruit_Python_SSD1306/examples/stats.py
 
 # modify this to alter the behaviour when the service is stopped
 ExecStop=/usr/bin/python /home/endom8rix/Documents/EndoM8rix/RPiZero-Toolbox/reset.py
 
+Restart=always
+RestartSec=10
+
 StandardOutput=syslog
 StandardError=syslog
 
-SyslogIdentifier=watchdogs-service
+SyslogIdentifier=display-service
 
 Nice=-19
 
