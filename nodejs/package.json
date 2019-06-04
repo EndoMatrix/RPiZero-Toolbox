@@ -4,7 +4,8 @@
   "description": "",
   "main": "rpi.js",
   "dependencies": {
-    "bleno": "^0.5.0"
+    "bleno": "^0.5.0",
+    "npm": "^6.9.0"
   },
   "devDependencies": {},
   "scripts": {
