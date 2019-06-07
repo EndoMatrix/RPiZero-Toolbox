@@ -6,7 +6,7 @@
 #
 # To use this service file, follow the steps below:
 # 2: sudo systemctl enable /path/to/adafruit.service
-# 3: sudo systemctl start adafruit.service
+# 3: sudo systemctl start adafruit[.service]
 
 [Unit]
 Description=Adafruit SSD1306 Service
