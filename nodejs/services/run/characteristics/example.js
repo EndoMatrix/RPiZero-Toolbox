@@ -16,10 +16,10 @@ const opts = {
       value: Buffer.from([0x19, 0x00, 0x37, 0x4A, 0x00, 0x00, 0x00]) // 0x19 is UTF-8 string (for credentials)
     })
   ]
-}
+};
 
 class C extends Characteristic {
-  constructor(opts) {
+  constructor() {
     super(opts);
 
     this._response = null; // data to supply on callback
