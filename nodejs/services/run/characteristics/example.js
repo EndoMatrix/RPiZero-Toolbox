@@ -5,7 +5,7 @@ const ble = require('./../../../tools/ble-helper');
 
 const opts = {
   uuid: ble.toUUID('A35C64F1-0001-0001-0000-6D2F4064C7FA'),
-  properties: ['read', 'write', 'notify'],
+  properties: [ 'read', 'write', 'notify' ],
   descriptors: [
     new Descriptor({
       uuid: '2901', // characteristic user format

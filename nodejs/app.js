@@ -14,11 +14,11 @@ const run = async (debug) => {
   debug.noble('noble');
 
   debug.app('init');
-  bleno.setServices([run.service], (error) => {
+  bleno.setServices([ run.service ], (error) => {
     if (error) debug.bleno(error);
   });
 
-  const [address] = require('os').networkInterfaces().wlan0;
+  const [ address ] = require('os').networkInterfaces().wlan0;
 
   bleno.on('stateChange', (state) => {
     const UUID_36 = parseInt(address.mac.replace(/:/g, '').substr(-6), 16).toString(36).toUpperCase(); // hexatridecimal encoding for latter half of MAC address
