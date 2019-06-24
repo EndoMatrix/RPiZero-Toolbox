@@ -9,7 +9,7 @@
 # 3: sudo systemctl start adafruit[.service]
 
 [Unit]
-Description=Adafruit SSD1306 Service
+Description=Adafruit SSD1306 Statistics Service
 After=loading.service
 Requires=loading.service
 
@@ -18,7 +18,7 @@ Requires=loading.service
 ExecStart=/usr/bin/python /home/endom8rix/Documents/Adafruit/Adafruit_Python_SSD1306/examples/stats.py
 
 # modify this to alter the behaviour when the service is stopped
-ExecStop=/usr/bin/python /home/endom8rix/Documents/EndoM8rix/RPiZero-Toolbox/reset.py
+ExecStop=/usr/bin/python /home/endom8rix/Documents/EndoM8rix/RPiZero-Toolbox/python/reset.py
 
 Restart=always
 RestartSec=10

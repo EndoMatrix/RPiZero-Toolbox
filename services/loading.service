@@ -17,10 +17,10 @@ Type=oneshot
 RemainAfterExit=true
 
 # modify this to alter the behaviour when the service is started
-ExecStart=/usr/bin/python /home/endom8rix/Documents/EndoM8rix/RPiZero-Toolbox/watchdogs.py
+ExecStart=/usr/bin/python /home/endom8rix/Documents/EndoM8rix/RPiZero-Toolbox/python/watchdogs.py
 
 # modify this to alter the behaviour when the service is stopped
-ExecStop=/usr/bin/python /home/endom8rix/Documents/EndoM8rix/RPiZero-Toolbox/reset.py
+ExecStop=/usr/bin/python /home/endom8rix/Documents/EndoM8rix/RPiZero-Toolbox/python/reset.py
 
 StandardOutput=syslog
 StandardError=syslog
