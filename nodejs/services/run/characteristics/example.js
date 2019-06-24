@@ -1,7 +1,7 @@
-const Characteristic = require('./../../../node_modules/bleno/lib/characteristic.js'); // require directly, as bleno causes issues with chai
-const Descriptor = require('./../../../node_modules/bleno/lib/descriptor.js'); // require directly, as bleno causes issues with chai
+const Characteristic = require('./../../../node_modules/bleno/lib/characteristic'); // require directly, as bleno causes issues with chai
+const Descriptor = require('./../../../node_modules/bleno/lib/descriptor'); // require directly, as bleno causes issues with chai
 
-const ble = require('./../../../tools/ble-helper.js');
+const ble = require('./../../../tools/ble-helper');
 
 const opts = {
   uuid: ble.toUUID('A35C64F1-0001-0001-0000-6D2F4064C7FA'),

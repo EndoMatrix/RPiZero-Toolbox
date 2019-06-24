@@ -1,9 +1,11 @@
+// external dependencies
 const bleno = require('bleno');
 
-const ble = require('./../../tools/ble-helper.js');
+// internal dependencies
+const ble = require('./../../tools/ble-helper');
 
 const characteristics = {
-  example: new (require('./characteristics/example.js'))()
+  example: new (require('./characteristics/example'))()
 }
 
 const service = new bleno.PrimaryService({

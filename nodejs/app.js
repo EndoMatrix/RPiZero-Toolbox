@@ -1,5 +1,4 @@
-// local dependencies
-const debug = require('./tools/dbg-helper.js');
+const debug = require('./tools/dbg-helper');
 
 const run = async (debug) => {
   debug.app('fetching external modules...');
@@ -7,8 +6,8 @@ const run = async (debug) => {
   debug.app('success!');
 
   debug.app('fetching internal modules...');
-  const ble = require('./tools/ble-helper.js');
-  const run = require('./services/run/service.js');
+  const ble = require('./tools/ble-helper');
+  const run = require('./services/run/service');
   debug.app('success!');
 
   debug.bleno('bleno');
@@ -35,4 +34,5 @@ const run = async (debug) => {
     }
   });
 };
+
 run(debug);
