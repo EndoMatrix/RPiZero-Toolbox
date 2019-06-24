@@ -10,9 +10,6 @@ const run = async (debug) => {
   const run = require('./services/run/service');
   debug.app('success!');
 
-  debug.bleno('bleno');
-  debug.noble('noble');
-
   debug.app('init');
   bleno.setServices([ run.service ], (error) => {
     if (error) debug.bleno(error);
@@ -24,10 +21,14 @@ const run = async (debug) => {
     const UUID_36 = parseInt(address.mac.replace(/:/g, '').substr(-6), 16).toString(36).toUpperCase(); // hexatridecimal encoding for latter half of MAC address
     const UUID_16 = ble.toUUID('A35F64F1-0000-0000-0000-6D2F4064C7FA'); // hexadecimal encoding for Service UUID
 
-    if (state.toUpperCase() === 'POWEREDON')
+    if (state.toUpperCase() === 'POWEREDON') {
       bleno.startAdvertising('Raspberry Pi ' + UUID_36, [UUID_16]);
-    else
+      debug.bleno('start advertising');
+    }
+    else {
       bleno.stopAdvertising();
+      debug.bleno('cease advertising');
+    }
   });
 };
 
